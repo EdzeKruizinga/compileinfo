@@ -14,6 +14,12 @@ import java.util.Set;
 
 import javax.tools.FileObject;
 
+/**
+ * This class generates a java class source code. It is used by
+ * {@link CompileInfoAnnotationProcessor}
+ *
+ * @author Edze Kruizinga
+ */
 public class CompileInfoWriter {
 	private final Writer writer;
 	private final Properties properties;

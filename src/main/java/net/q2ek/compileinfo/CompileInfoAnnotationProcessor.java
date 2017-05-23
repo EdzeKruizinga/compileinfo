@@ -21,6 +21,11 @@ import javax.tools.StandardLocation;
 
 import com.google.auto.service.AutoService;
 
+/**
+ * This is the annotation processor for the {@link CompileInfo} annotation.
+ *
+ * @author Edze Kruizinga
+ */
 @AutoService(Processor.class)
 public class CompileInfoAnnotationProcessor extends AbstractProcessor {
 	private Filer filer;
