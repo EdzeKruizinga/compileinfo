@@ -7,8 +7,6 @@ import java.io.CharArrayWriter;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import net.q2ek.compileinfo.CompileInfoWriter;
-
 @SuppressWarnings("static-method")
 public class CompileInfoWriterTest {
 	private static final String TEST_CLASS_NAME = "CompileInfoTestOutput";
@@ -26,7 +24,6 @@ public class CompileInfoWriterTest {
 		assertThat(actual).contains("@author");
 		assertThat(actual).contains("class " + TEST_CLASS_NAME);
 		assertThat(actual).contains("String time()");
-		assertThat(actual).contains("String user()");
 	}
 
 	@Ignore

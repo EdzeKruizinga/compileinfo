@@ -65,7 +65,6 @@ public class CompileInfoWriter {
 		append("public class " + name + "\n");
 		append("{\n");
 		writeDateTime();
-		writeUser();
 		writePropertiesMap();
 		writeProperties();
 		writeKeySetMethod();
@@ -83,12 +82,6 @@ public class CompileInfoWriter {
 	private void writeDateTime() {
 		append("    static String time() {\n");
 		append("        return \"" + LocalDate.now() + " " + LocalTime.now() + "\";\n");
-		append("    }\n\n");
-	}
-
-	private void writeUser() {
-		append("    static String user() {\n");
-		append("        return \"" + System.getProperty("user.name") + "\";\n");
 		append("    }\n\n");
 	}
 
