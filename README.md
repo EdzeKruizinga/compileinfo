@@ -6,8 +6,6 @@ More specifically it is an annotation processor that captures the time and syste
 
 ## Usage
 
-* **Work in progress:** I have not yet uploaded this project to Maven Central. But I have taken some steps in that direction.
-
 To use in a Maven project:
 
 In order to activate metadata generation you will need to include 
@@ -19,7 +17,7 @@ In a Maven project, one would include the `net.q2ek:compileinfo` artifact as a "
 <dependency>
 	<groupId>net.q2ek</groupId>
 	<artifactId>compileinfo</artifactId>
-	<version>0.1.0</version>
+	<version>0.9.0</version>
 	<scope>compile</scope>
 </dependency>
 ```
@@ -51,6 +49,11 @@ The project is a standard Maven project.
 ## Versioning
 
 I use [SemVer](http://semver.org/) for versioning.
+
+### Releases
+
+0.1.0 is available at Maven Central
+0.9.0 should be available at Maven Central
 
 ## Authors
 
