@@ -52,8 +52,7 @@ I use [SemVer](http://semver.org/) for versioning.
 
 ### Releases
 
-0.1.0 is available at Maven Central
-0.9.0 should be available at Maven Central
+* 0.9.0 is available at Maven Central
 
 ## Authors
 
