@@ -6,7 +6,7 @@ More specifically it is an annotation processor that captures the time and syste
 
 ## Usage
 
-* **Work in progress:** I have not yet uploaded this project to Maven Central.
+* **Work in progress:** I have not yet uploaded this project to Maven Central. But I have taken some steps in that direction.
 
 To use in a Maven project:
 
@@ -19,7 +19,7 @@ In a Maven project, one would include the `net.q2ek:compileinfo` artifact as a "
 <dependency>
 	<groupId>net.q2ek</groupId>
 	<artifactId>compileinfo</artifactId>
-	<version>1.0.0</version>
+	<version>0.1.0</version>
 	<scope>compile</scope>
 </dependency>
 ```
