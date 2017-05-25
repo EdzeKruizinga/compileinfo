@@ -22,6 +22,9 @@ In a Maven project, one would include the `net.q2ek:compileinfo` artifact as a "
 </dependency>
 ```
 
+To support annotation processing in your IDE see:
+https://immutables.github.io/apt.html
+
 ### Example
 
 ```java
