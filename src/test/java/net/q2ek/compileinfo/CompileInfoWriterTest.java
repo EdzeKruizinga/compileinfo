@@ -21,9 +21,10 @@ public class CompileInfoWriterTest {
 		assertThat(actual).contains("import java.util.HashMap;");
 		assertThat(actual).contains("import java.util.Map;");
 		assertThat(actual).contains("import java.util.Set;");
+		assertThat(actual).contains("import java.time.LocalDateTime;");
 		assertThat(actual).contains("@author");
 		assertThat(actual).contains("class " + TEST_CLASS_NAME);
-		assertThat(actual).contains("String time()");
+		assertThat(actual).contains("LocalDateTime localDateTime()");
 	}
 
 	@Ignore
