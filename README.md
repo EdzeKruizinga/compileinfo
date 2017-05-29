@@ -1,6 +1,6 @@
 # CompileInfo
 
-CompileInfo provides the CompileInfo annotation which provides a convenient way to provide compile time information to a [Java][java] applicaton.
+This library contains the CompileInfo annotation which provides a convenient way to get compile time information in a [Java][java] application.
 
 More specifically it is an annotation processor that captures the time and system properties at compile time and stores them in a generated Java class. This is helpful for devops purposes or in any delivery pipeline. It allows developers, operations and testers to know exactly when and where an application was built if these properties are exposed by the application at runtime.
 
@@ -21,6 +21,9 @@ In a Maven project, one would include the `net.q2ek:compileinfo` artifact as a "
 	<scope>compile</scope>
 </dependency>
 ```
+
+To support annotation processing in your IDE see:
+https://immutables.github.io/apt.html
 
 ### Example
 
@@ -52,8 +55,7 @@ I use [SemVer](http://semver.org/) for versioning.
 
 ### Releases
 
-0.1.0 is available at Maven Central
-0.9.0 should be available at Maven Central
+* 0.9.0 is available at Maven Central
 
 ## Authors
 
