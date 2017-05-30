@@ -27,9 +27,9 @@ public class CompileInfoWriter {
 	private final Writer writer;
 	private final Properties properties;
 
-	CompileInfoWriter(Writer writer) {
+	CompileInfoWriter(Writer writer, Properties properties) {
 		this.writer = writer;
-		this.properties = System.getProperties();
+		this.properties = properties;
 	}
 
 	/**
@@ -41,7 +41,7 @@ public class CompileInfoWriter {
 	static void writeFile(String packageName, String name, FileObject resource) throws IOException {
 		try (OutputStream stream = resource.openOutputStream();
 				OutputStreamWriter writer = new OutputStreamWriter(stream)) {
-			new CompileInfoWriter(writer).write(packageName, name);
+			new CompileInfoWriter(writer, System.getProperties()).write(packageName, name);
 			writer.flush();
 		}
 	}
@@ -141,10 +141,24 @@ public class CompileInfoWriter {
 		append("        Map<String, String> result = new HashMap<>();\n");
 		List<String> keys = sortedKeys(this.properties);
 		for (String key : keys) {
-			append(String.format("        result.put(\"%s\", \"%s\");\n", key, filter(this.properties.get(key).toString())));
+			putKeyValue(key);
 		}
 		append("        return result;\n");
 		methodEnd();
+	}
+
+	private void putKeyValue(String key) {
+		String value = this.properties.get(key).toString();
+		String filteredKey = filter(key);
+		String filteredValue = filter(value);
+		if (filteredKey.contains("\\\"")) {
+			filteredKey = fixDoubleQuotes(filteredKey);
+		}
+		if (filteredValue.contains("\\\"")) {
+			filteredValue = fixDoubleQuotes(filteredValue);
+		}
+		String mapPutCommand = String.format("        result.put(%s, %s);\n", filteredKey, filteredValue);
+		append(mapPutCommand);
 	}
 
 	private static List<String> sortedKeys(Properties properties) {
@@ -181,6 +195,27 @@ public class CompileInfoWriter {
 	}
 
 	private static String filter(String value) {
+		return "\"" + filterDoubleQuotes(filterLineSeperators(value)) + "\"";
+	}
+
+	private static String filterLineSeperators(String value) {
 		return value.replaceAll("\n", "\\\\n").replaceAll("\r", "\\\\r");
+	}
+
+	private static String filterDoubleQuotes(String value) {
+		return value.replace("\"", "\\\"");
+	}
+
+	private static String fixDoubleQuotes(String value) {
+		String result = "new String(new char[]{";
+		char[] charArray = value.toCharArray();
+		for (char c : charArray) {
+			if (c == '\\')
+				result = result + "'\\\\', ";
+			else
+				result = result + "'" + c + "', ";
+		}
+		result = result + "})";
+		return result;
 	}
 }
