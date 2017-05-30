@@ -17,7 +17,7 @@ In a Maven project, one would include the `net.q2ek:compileinfo` artifact as a "
 <dependency>
 	<groupId>net.q2ek</groupId>
 	<artifactId>compileinfo</artifactId>
-	<version>0.9.0</version>
+	<version>0.10.0</version>
 	<scope>compile</scope>
 </dependency>
 ```
@@ -25,23 +25,7 @@ In a Maven project, one would include the `net.q2ek:compileinfo` artifact as a "
 To support annotation processing in your IDE see:
 https://immutables.github.io/apt.html
 
-### Example for version 0.9.0
-
-```java
-import net.q2ek.compileinfo.CompileInfo;
-
-@CompileInfo
-class MyClass {
-	public String compileTime() {
-		return MyClassCompileInfo.time();
-	}
-
-	public String jenkinsBuildUrl() {
-		return MyClassCompileInfo.get("env.BUILD_URL");
-	}
-}
-```
-### Example for version 0.10.0-SNAPSHOT
+### Example
 
 ```java
 import net.q2ek.compileinfo.CompileInfo;
@@ -71,7 +55,7 @@ I use [SemVer](http://semver.org/) for versioning.
 
 ### Releases
 
-* 0.9.0 is available at Maven Central
+* 0.10.0 is available at Maven Central
 
 ## Authors
 
