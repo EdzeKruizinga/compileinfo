@@ -25,7 +25,7 @@ In a Maven project, one would include the `net.q2ek:compileinfo` artifact as a "
 To support annotation processing in your IDE see:
 https://immutables.github.io/apt.html
 
-### Example
+### Example for version 0.9.0
 
 ```java
 import net.q2ek.compileinfo.CompileInfo;
@@ -34,6 +34,22 @@ import net.q2ek.compileinfo.CompileInfo;
 class MyClass {
 	public String compileTime() {
 		return MyClassCompileInfo.time();
+	}
+
+	public String jenkinsBuildUrl() {
+		return MyClassCompileInfo.get("env.BUILD_URL");
+	}
+}
+```
+### Example for version 0.10.0-SNAPSHOT
+
+```java
+import net.q2ek.compileinfo.CompileInfo;
+
+@CompileInfo
+class MyClass {
+	public String compileDateTime() {
+		return MyClassCompileInfo.localDateTime().toString();
 	}
 
 	public String jenkinsBuildUrl() {
